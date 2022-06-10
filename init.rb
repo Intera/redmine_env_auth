@@ -1,5 +1,3 @@
-require "redmine"
-
 Redmine::Plugin.register :redmine_env_auth do
   name "request environment authentication"
   author "Intera GmbH"
@@ -28,6 +26,10 @@ Redmine::Plugin.register :redmine_env_auth do
     }
 end
 
-Rails.configuration.to_prepare do
+if Rails.version > '6.0' && Rails.autoloaders.zeitwerk_enabled?
   RedmineEnvAuth::EnvAuthPatch.install
+else
+  Rails.configuration.to_prepare do
+    RedmineEnvAuth::EnvAuthPatch.install
+  end
 end
