@@ -63,7 +63,7 @@ if you are locked out because the allow other login setting is not set to "all" 
 
 # possible enhancements
 * document how passing the login variable to only specific url paths can work
-* all translations except "en" and "de" are out of date
+* all translations except "en", "de" and "ja" are out of date
 * tests
 
 # copyright and license
