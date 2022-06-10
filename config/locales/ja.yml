@@ -1,15 +1,16 @@
-# Japanese translation by Akiko Takano
+# Japanese translation by Akiko Takano, tohosaku
 ja:
-  label_enable_env_auth: ENV認証を有効にする
-  label_server_env_var: サーバの環境変数名
+  label_allow_other_login_admins: 全てのシステム管理者
+  label_allow_other_login_all: 全てのユーザー
+  label_allow_other_login: 通常のログインを許可
+  label_allow_other_login_none: 許可しない
+  label_allow_other_login_users: 指定されたユーザーのみ (カンマ区切り)
   label_default: デフォルト
-  label_lookup_mode: ローカルユーザの検索モード
-  label_login_name: ログイン名
   label_email_address: メールアドレス
-  login_envauth_title: ENV認証でログイン
-  label_enable_auto_registration: 自動登録
-  label_autoregister: 登録
-  error_autoregistration_disabled: 自動登録を無効にする
-  error_remote_user_unset: ユーザ名が設定されていません
-  error_unknown_user: データベースに該当するユーザが存在しません
-  label_keep_sessions: ENV認証が切れたあともRedmineのセッションを継続させる (危険です!)
+  label_enabled: 有効にする
+  label_env_variable_name: サーバの環境変数名
+  label_ldap_checked_auto_registration: LDAPの確認に基づく自動登録
+  label_login_name: ログイン名
+  label_remove_suffix_help: 入力された文字列は、環境変数の末尾から削除されます。
+  label_remove_suffix: 削除するサフィックス
+  label_redmine_user_property: 対応するredmine 側のユーザー情報
