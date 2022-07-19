@@ -13,3 +13,13 @@ de:
   label_remove_suffix_help: Der eingetragene Text wird vom Ende des Texts in der Umgebungsvariable abgeschnitten
   label_remove_suffix: Entferne suffix
   label_redmine_user_property: Redmine Benutzereigenschaft
+  label_env_checked_auto_registration: Auto-Registrierung mit Umgebungsvariablen
+  label_env_variable_firstname: Variable mit Vorname
+  label_env_variable_lastname: Variable mit Nachname
+  label_env_variable_email: Variable mit Email-Adresse
+  label_env_variable_admins: Liste mit Admin-Logins
+  label_env_variable_admins_description: Kommaseparierte Liste mit Logins, die als Administratoren registriert werden
+  label_env_variable_new_user_initial_locked: Sperre neu registrierte Konten
+  label_show_logout_link: Abmelden-Link anzeigen
+  label_external_logout_target:  Ziel für Abmelden-Link
+  label_external_logout_target_description: hier kann ein externer Abmeldeservice angegeben werden. Wenn leer, Umleitung auf internen logout-Pfad

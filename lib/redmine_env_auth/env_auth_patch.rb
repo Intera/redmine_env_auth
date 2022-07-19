@@ -22,6 +22,18 @@ module RedmineEnvAuth
           end
         end
 
+        def get_env_firstname
+          request.env[Setting.plugin_redmine_env_auth["env_variable_firstname"]]
+        end          
+
+        def get_env_lastname
+          request.env[Setting.plugin_redmine_env_auth["env_variable_lastname"]]
+        end          
+
+        def get_env_mail
+          request.env[Setting.plugin_redmine_env_auth["env_variable_email"]]
+        end          
+
         def allow_other_login? user
           # User -> boolean
           # this checks if an existing session is allowed. redmine sessions can currently also
@@ -82,16 +94,28 @@ module RedmineEnvAuth
           end
           # try redmine users
           if "mail" == property
-            user = User.active.find_by_mail key
+            user = User.find_by_mail key
           else
-            user = User.active.find_by_login key
+            user = User.find_by_login key
           end
+
           # try ldap users and auto registration
           if not user
             auto = "true" == Setting.plugin_redmine_env_auth["ldap_checked_auto_registration"]
             if auto then user = register_if_exists_in_ldap key end
           end
-          # start session or return nil
+          if not user
+            auto = "true" == Setting.plugin_redmine_env_auth["env_checked_auto_registration"]
+            if auto then user = register_if_env_auto_registration_checked key end
+          end
+
+					if user and user.is_a? User and user.locked?
+						logger.debug "user is locked. login is not allowed"
+						reset_session
+						nil
+					end
+
+					# start session or return nil
           if user and user.is_a? User
             logger.debug "redmine_env_auth: user found, start session"
             start_user_session user
@@ -139,6 +163,45 @@ module RedmineEnvAuth
           end
           logger.debug "redmine_env_auth: no user found via ldap"
           nil
+        end
+
+        def register_if_env_auto_registration_checked login
+          logger.debug "attempt to create env-user"
+          # check if required fields exist
+          if get_env_lastname.empty? 
+            logger.debug "redmine_env_auth: lastname is empty. cannot create user"
+            return nil
+          end
+
+          if get_env_firstname.empty?
+            logger.debug "redmine_env_auth: given_name is empty. cannot create user"
+            return nil
+          end
+
+          if get_env_mail.empty?
+            logger.debug "redmine_env_auth: given_name is empty. cannot create user"
+            return nil
+          end
+
+          user = User.new({:firstname => get_env_firstname, :lastname => get_env_lastname, :mail => get_env_mail})
+          user.login = login
+
+          if Setting.plugin_redmine_env_auth["env_variable_new_user_initial_locked"] == "true"
+						user.lock!
+					end
+
+					if Setting.plugin_redmine_env_auth["env_variable_admins"].split('/\s*,\s*/').include? login
+						user.admin = true
+					end
+					
+          if user.save
+            user.reload
+            logger.debug "redmine_env_auth: user creation successful"
+            return user
+          else
+            logger.error "redmine_env_auth: user creation failed"
+            return
+          end
         end
 
         if self.respond_to?(:alias_method_chain) # Rails < 5

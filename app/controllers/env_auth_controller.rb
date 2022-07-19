@@ -9,9 +9,18 @@ class EnvAuthController < ApplicationController
     text = [
       "variable name: #{variable_name}",
       "original value: #{original.inspect}",
-      "effective value: #{effective.inspect}",
-      "available variables:\n  #{keys}"
+      "effective value: #{effective.inspect}"
     ].join("\n")
+
+    text = "#{text}\navailable variables:\n  #{keys}"
     render :plain => text
+  end
+
+  def logout
+    if Setting.plugin_redmine_env_auth["external_logout_target"] == ""
+      redirect_to signout_path
+    else 
+      redirect_to Setting.plugin_redmine_env_auth["external_logout_target"]
+    end
   end
 end
