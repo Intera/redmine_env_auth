@@ -1,14 +1,25 @@
-# German strings
-label_enable_env_auth: ENV Authentifizierung aktivieren
-label_server_env_var: Name für die Umgebungsvariable des Server
-label_default: Standard
-label_lookup_mode: Lokaler Lookup Modus
-label_login_name: Login Name
-label_email_address: Email Addresse
-login_envauth_title: via ENV-Authentifizierung einloggen
-label_enable_auto_registration: Automatische  Registrierung
-label_autoregister: Registrierung
-error_autoregistration_disabled: Automatische  Registrierung ist deaktiviert
-error_remote_user_unset: Benutzername wurde nicht angegeben
-error_unknown_user: Benutzer konnte nicht gefunden werden
-label_keep_sessions: Verbindung aufrecht erhalten nachdem die ENV Authentifizierung abgelaufen ist (sicherheitskritisch und nicht empfohlen!)
+de:
+  label_allow_other_login_admins: Für Administratoren
+  label_allow_other_login_all: Für alle Benutzer
+  label_allow_other_login_none: Deaktiviert
+  label_allow_other_login: Standardlogin erlauben
+  label_allow_other_login_users: Für bestimmte Benutzer (Kommagetrennt)
+  label_default: Vorgabe
+  label_email_address: E-Mail-Adresse
+  label_enabled: Plugin verwenden
+  label_env_variable_name: Name der Umgebungsvariable für die Benutzerdaten
+  label_ldap_checked_auto_registration: Automatische Registrierung mit LDAP-Abgleich
+  label_login_name: Loginname
+  label_remove_suffix_help: Der eingetragene Text wird vom Ende des Texts in der Umgebungsvariable abgeschnitten
+  label_remove_suffix: Entferne suffix
+  label_redmine_user_property: Redmine Benutzereigenschaft
+  label_env_checked_auto_registration: Auto-Registrierung mit Umgebungsvariablen
+  label_env_variable_firstname: Variable mit Vorname
+  label_env_variable_lastname: Variable mit Nachname
+  label_env_variable_email: Variable mit Email-Adresse
+  label_env_variable_admins: Liste mit Admin-Logins
+  label_env_variable_admins_description: Kommaseparierte Liste mit Logins, die als Administratoren registriert werden
+  label_env_variable_new_user_initial_locked: Sperre neu registrierte Konten
+  label_show_logout_link: Abmelden-Link anzeigen
+  label_external_logout_target:  Ziel für Abmelden-Link
+  label_external_logout_target_description: hier kann ein externer Abmeldeservice angegeben werden. Wenn leer, Umleitung auf internen logout-Pfad

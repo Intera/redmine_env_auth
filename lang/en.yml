@@ -1,14 +1,25 @@
-# english strings
-label_enable_env_auth: enable env authentication
-label_server_env_var: name of server environment variable
-label_default: default
-label_lookup_mode: local user lookup mode
-label_login_name: login name
-label_email_address: email address
-login_envauth_title: sign in via env-auth
-label_enable_auto_registration: automatic registration
-label_autoregister: registration
-error_autoregistration_disabled: automatic registration is disabled
-error_remote_user_unset: username is not provided
-error_unknown_user: user was not found in the database
-label_keep_sessions: keep redmine sessions open after env authentication lost (dangerous!)
+en:
+  label_allow_other_login_admins: all admininstrators
+  label_allow_other_login_all: all users
+  label_allow_other_login: allow standard login
+  label_allow_other_login_none: disabled
+  label_allow_other_login_users: some users (comma separated)
+  label_default: default
+  label_email_address: email address
+  label_enabled: enable
+  label_env_variable_name: name of request environment variable
+  label_ldap_checked_auto_registration: automatic registration with ldap check
+  label_login_name: login name
+  label_remove_suffix_help: the given text will be removed from the end of the text in the environment variable
+  label_remove_suffix: remove suffix
+  label_redmine_user_property: redmine user property
+  label_env_checked_auto_registration: automatic registration with env variables
+  label_env_variable_firstname: variable with firstname
+  label_env_variable_lastname: variable with lastname
+  label_env_variable_email: variable with email
+  label_env_variable_admins: list of admin logins
+  label_env_variable_admins_description: comma separated list of login that will be registered as admins
+  label_env_variable_new_user_initial_locked: lock newly registered accounts
+  label_show_logout_link: display logout link
+  label_external_logout_target:  where to redirect on logout
+  label_external_logout_target_description: specify an external logout service. if empty the internal logout path is used

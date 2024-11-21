@@ -14,3 +14,13 @@ ja:
   label_remove_suffix_help: 入力された文字列は、環境変数の末尾から削除されます。
   label_remove_suffix: 削除するサフィックス
   label_redmine_user_property: 対応するredmine 側のユーザー情報
+  label_env_checked_auto_registration: 環境変数による自動登録
+  label_env_variable_firstname: 名の変数
+  label_env_variable_lastname: 姓の変数
+  label_env_variable_email: メールの変数
+  label_env_variable_admins: 管理者ログインのリスト
+  label_env_variable_admins_description: 管理者として登録されるログインのカンマ区切りリスト
+  label_env_variable_new_user_initial_locked: 新規登録アカウントをロック
+  label_show_logout_link: ログアウトリンクを表示
+  label_external_logout_target: ログアウト時のリダイレクト先
+  label_external_logout_target_description: 外部ログアウトサービスを指定します。空の場合、内部のログアウトパスが使用されます。

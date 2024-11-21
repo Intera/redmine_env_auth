@@ -3,7 +3,7 @@ Redmine::Plugin.register :redmine_env_auth do
   author "Intera GmbH"
   url "http://github.com/intera/redmine_env_auth" if respond_to?(:url)
   description "A plugin for authentication based on variables in the request environment."
-  version "1.1"
+  version "1.3"
 
   Redmine::MenuManager.map :account_menu do |menu|
     # hide the logout link if an automatic login is active

@@ -5,12 +5,13 @@ this plugin allows to authenticate users using a variable in the request environ
 * automatically log-in users if a specific request environment variable is set, and log-out if it is unset
 * option to allow conventional redmine logins for admins, specific users or everyone
 * option to register users automatically if they are found using ldap
+* option to register users automatically from additional environment variables
 * "sign out" link hidden when autologin is active
 * compatible with redmine 4
 
 # installation
 ## download
-dowload a [release](https://github.com/Intera/redmine_env_auth/releases) or a [zip file](https://github.com/Intera/redmine_env_auth/archive/master.zip) via github and unpack the archive.
+dowload a [release](https://github.com/Intera/redmine_env_auth/tags) or a [zip file](https://github.com/Intera/redmine_env_auth/archive/master.zip) via github and unpack the archive.
 alternatively you can clone the repository with "git clone https://github.com/Intera/redmine_env_auth.git"
 
 ## setup
@@ -57,6 +58,19 @@ RequestHeader set X_REMOTE_USER expr=%{REMOTE_USER}
 * redmine sessions can be ended by going to /logout and clicking on the button
 
 if you are locked out because the allow other login setting is not set to "all" and the request environment variable isnt set correctly, you might want to reset the plugin settings to be able to log-in with the conventional redmine login. the plugin settings are stored in the database and the sql to delete them is ``delete from settings where name="plugin_redmine_env_auth";``. you might have to restart redmine afterwards
+
+# environment auto registration
+users can also be registered based on environment variables, with options for initial account locking, admin assignment, and custom logout services.
+
+## settings
+* enable
+* environment variable name for the first name
+* environment variable name for the last name
+* environment variable name for the email
+* comma-separated list of admin logins
+* lock newly registered accounts
+* display a logout link
+* url for an external logout service
 
 # possible enhancements
 * document how passing the login variable to only specific url paths can work
