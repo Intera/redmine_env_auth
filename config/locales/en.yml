@@ -13,3 +13,13 @@ en:
   label_remove_suffix_help: the given text will be removed from the end of the text in the environment variable
   label_remove_suffix: remove suffix
   label_redmine_user_property: redmine user property
+  label_env_checked_auto_registration: automatic registration with env variables
+  label_env_variable_firstname: variable with firstname
+  label_env_variable_lastname: variable with lastname
+  label_env_variable_email: variable with email
+  label_env_variable_admins: list of admin logins
+  label_env_variable_admins_description: comma separated list of login that will be registered as admins
+  label_env_variable_new_user_initial_locked: lock newly registered accounts
+  label_show_logout_link: display logout link
+  label_external_logout_target:  where to redirect on logout
+  label_external_logout_target_description: specify an external logout service. if empty the internal logout path is used

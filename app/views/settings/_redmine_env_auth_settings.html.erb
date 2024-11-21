@@ -40,3 +40,27 @@
   <%= content_tag(:label, l(:label_ldap_checked_auto_registration))%>
   <%= check_box_tag "settings[ldap_checked_auto_registration]", true, @settings["ldap_checked_auto_registration"] == "true" %>
 </p>
+
+<p>
+  <%= content_tag(:label, l(:label_env_checked_auto_registration))%>
+  <%= check_box_tag "settings[env_checked_auto_registration]", true, @settings["env_checked_auto_registration"] == "true" %><br/>
+  <%= content_tag(:label, l(:label_env_variable_firstname)) %>
+  <%= text_field_tag "settings[env_variable_firstname]", @settings["env_variable_firstname"] %><br/>
+  <%= l(:label_default)%>: GIVENNAME<br/>
+  <%= content_tag(:label, l(:label_env_variable_lastname)) %>
+  <%= text_field_tag "settings[env_variable_lastname]", @settings["env_variable_lastname"] %><br/>
+  <%= l(:label_default)%>: LASTNAME<br/>
+  <%= content_tag(:label, l(:label_env_variable_email)) %>
+  <%= text_field_tag "settings[env_variable_email]", @settings["env_variable_email"] %><br/>
+  <%= l(:label_default)%>: EMAIL<br/>
+  <%= content_tag(:label, l(:label_env_variable_admins)) %>
+  <%= text_field_tag "settings[env_variable_admins]", @settings["env_variable_admins"] %><br/>
+  <%= l(:label_env_variable_admins_description)%><br/>
+  <%= content_tag(:label, l(:label_env_variable_new_user_initial_locked))%>
+  <%= check_box_tag "settings[env_variable_new_user_initial_locked]", true, @settings["env_variable_new_user_initial_locked"] == "true" %><br/>
+  <%= content_tag(:label, l(:label_show_logout_link))%>
+  <%= check_box_tag "settings[show_logout_link]", true, @settings["show_logout_link"] == "true" %><br/>
+  <%= content_tag(:label, l(:label_external_logout_target)) %>
+  <%= text_field_tag "settings[external_logout_target]", @settings["external_logout_target"] %><br/>
+  <%= l(:label_external_logout_target_description)%><br/>
+</p>
