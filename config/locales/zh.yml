@@ -1,0 +1,15 @@
+zh:
+  label_allow_other_login_admins: 所有管理员
+  label_allow_other_login_all: 所有用户
+  label_allow_other_login: 允许标准登录
+  label_allow_other_login_none: 已禁用
+  label_allow_other_login_users: 一些用户（以逗号分隔）
+  label_default: 默认
+  label_email_address: 电子邮件地址
+  label_enabled: 启用
+  label_env_variable_name: 请求环境变量的名称
+  label_ldap_checked_auto_registration: 带有LDAP检查的自动注册
+  label_login_name: 登录名
+  label_remove_suffix_help: 将从环境变量文本的末尾移除给定的文本
+  label_remove_suffix: 移除后缀
+  label_redmine_user_property: Redmine用户属性
