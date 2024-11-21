@@ -24,15 +24,15 @@ module RedmineEnvAuth
 
         def get_env_firstname
           request.env[Setting.plugin_redmine_env_auth["env_variable_firstname"]]
-        end          
+        end
 
         def get_env_lastname
           request.env[Setting.plugin_redmine_env_auth["env_variable_lastname"]]
-        end          
+        end
 
         def get_env_mail
           request.env[Setting.plugin_redmine_env_auth["env_variable_email"]]
-        end          
+        end
 
         def allow_other_login? user
           # User -> boolean
@@ -149,8 +149,7 @@ module RedmineEnvAuth
             end
             user = User.new ldap_user.slice(:firstname, :lastname, :mail)
             user.login = ldap_user[:login]
-            # registered users will be able to log in using ldap if redmine_env_auth is disabled.
-            # an alternative would be to not set auth_source_id, users without password can not log in.
+            # this allows newly registered users to log in using ldap if redmine_env_auth is disabled
             user.auth_source_id = auth_source.id
             if user.save
               user.reload
@@ -168,39 +167,39 @@ module RedmineEnvAuth
         def register_if_env_auto_registration_checked login
           logger.debug "attempt to create env-user"
           # check if required fields exist
-          if get_env_lastname.empty? 
+          if get_env_lastname.blank?
             logger.debug "redmine_env_auth: lastname is empty. cannot create user"
             return nil
           end
 
-          if get_env_firstname.empty?
-            logger.debug "redmine_env_auth: given_name is empty. cannot create user"
+          if get_env_firstname.blank?
+            logger.debug "redmine_env_auth: firstname is empty. cannot create user"
             return nil
           end
 
-          if get_env_mail.empty?
-            logger.debug "redmine_env_auth: given_name is empty. cannot create user"
+          if get_env_mail.blank?
+            logger.debug "redmine_env_auth: email is empty. cannot create user"
             return nil
           end
 
-          user = User.new({:firstname => get_env_firstname, :lastname => get_env_lastname, :mail => get_env_mail})
+          user = User.new(:firstname => get_env_firstname, :lastname => get_env_lastname, :mail => get_env_mail)
           user.login = login
 
           if Setting.plugin_redmine_env_auth["env_variable_new_user_initial_locked"] == "true"
-						user.lock!
-					end
+            user.lock!
+          end
 
-					if Setting.plugin_redmine_env_auth["env_variable_admins"].split('/\s*,\s*/').include? login
-						user.admin = true
-					end
-					
+          if Setting.plugin_redmine_env_auth["env_variable_admins"].split(/\s*,\s*/).include? login
+            user.admin = true
+          end
+
           if user.save
             user.reload
             logger.debug "redmine_env_auth: user creation successful"
             return user
           else
-            logger.error "redmine_env_auth: user creation failed"
-            return
+            logger.error "redmine_env_auth: user creation failed - #{user.errors.full_messages.join(', ')}"
+            return nil
           end
         end
 
