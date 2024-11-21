@@ -13,3 +13,13 @@ zh:
   label_remove_suffix_help: 将从环境变量文本的末尾移除给定的文本
   label_remove_suffix: 移除后缀
   label_redmine_user_property: Redmine用户属性
+  label_env_checked_auto_registration: 使用环境变量的自动注册
+  label_env_variable_firstname: 名字的变量
+  label_env_variable_lastname: 姓氏的变量
+  label_env_variable_email: 邮箱的变量
+  label_env_variable_admins: 管理员登录列表
+  label_env_variable_admins_description: 以逗号分隔的登录列表，这些登录将被注册为管理员
+  label_env_variable_new_user_initial_locked: 锁定新注册的账户
+  label_show_logout_link: 显示登出链接
+  label_external_logout_target: 登出时重定向的位置
+  label_external_logout_target_description: 指定一个外部登出服务。如果为空，将使用内部登出路径
